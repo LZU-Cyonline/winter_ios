@@ -1,0 +1,43 @@
+<canvas-drag id="canvas-drag" graph="{{graph}}" width="750" height="1088" enableUndo="{{true}}">
+</canvas-drag>
+<cover-image src='{{current_image}}' style="width: 750rpx;height: 1088rpx;position: absolute;top: 0;left: 0;z-index:998;" wx:if='{{show_img}}'></cover-image>
+<view style="width: 100vw;height: calc({{screenHeight}}px - 1088rpx - {{naviBarHeight}}px);display: flex;flex-direction: row;justify-content: space-around;align-items: center;">
+	<!-- <view style="width: 100vw;display: flex;flex-direction: row;justify-content: space-around;"> -->
+		<button style="width: 150rpx;font-size: 32rpx;color: #fff;background-color: #add5a2;height: 80%;display: flex;justify-content: center;align-items: center;" bindtap='chooseImage'>模板</button>
+		<button style="width: 200rpx;font-size: 32rpx;color: #fff;background-color: #f7c173;height: 80%;display: flex;justify-content: center;align-items: center;" bindtap="onAddImage">添加图片</button>
+		<button style="width: 150rpx;font-size: 32rpx;color: #fff;background-color: #eea08c;height: 80%;display: flex;justify-content: center;align-items: center;" bindtap='showImage'>{{show_img?'隐藏':'显示'}}</button>
+		<button style="width: 150rpx;font-size: 32rpx;color: #fff;background-color: #63bbd0;height: 80%;display: flex;justify-content: center;align-items: center;" bindtap="onExport">完成</button>
+	<!-- </view> -->
+	<!-- <view style="width: 100vw;display: flex;flex-direction: row;justify-content: space-around;margin-top: 10px;">
+		
+	</view> -->
+</view>
+<view style="height: {{naviBarHeight}}px;width: 100vw;position: absolute;top: 0;left: 0;"></view>
+<view id="container" bindtap="cancelChoose" wx:if='{{show_model}}'>
+  <view id="subBox" catchtap="nothing">
+    <view id="tipsWord">{{title}}</view>
+    <swiper style="height:800rpx;" bindchange="chooseModel"	current="{{current}}" circular previous-margin="45" next-margin="45">
+      <swiper-item wx:for="{{images}}" style='display:flex;justify-content:center;'  data-url="{{item.url}}">
+        <image src="{{item.url}}" mode="heightFix" style="height:60vh"></image>
+      </swiper-item>
+    </swiper>
+    <view id="buttonoutterbox">
+      <view id="confirmbutton" catchtap="beforeModel">上一张</view>
+      <view id="confirmbutton" catchtap="confirmModel">确定</view>
+      <view id="confirmbutton" catchtap="nextModel">下一张</view>
+    </view>
+  </view>
+</view>
+<image src='{{add_img_path}}' style="width: 0;height: 0;position: absolute;top: 0;left: 0;" bindload='getUserImageInfo'></image>
+<!-- <view class="btn" bindtap="onAddImage">添加图片</view>
+<view class="btn" bindtap="onAddTest">添加测试图片</view>
+<view class="btn" bindtap="onAddText">添加文字</view>
+<view class="btn" bindtap="onExport">导出图片</view>
+<view class="btn" bindtap="onChangeColor">改变文字颜色</view>
+<view class="btn" bindtap="onChangeBgColor">改变背景颜色</view>
+<view class="btn" bindtap="onChangeBgImage">改变背景照片</view>
+<view class="btn" bindtap="onExportJSON">导出模板</view>
+<view class="btn" bindtap="onImport">导入默认模板</view>
+<view class="btn" bindtap="onClearCanvas">清空画布</view>
+<view class="btn" bindtap="onUndo">后退</view>
+<view class="btn" bindtap='show'>123</view> -->

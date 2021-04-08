@@ -1,0 +1,5 @@
+<image src="{{image}}" style="height:110vh;width:100vw" id="bg"></image>
+<view id="ok">
+  <text bindtap="saveImage" id="bt">保存图片</text>
+</view>
+<painter customStyle='position: absolute; left: -9999rpx;' palette="{{template}}" bind:imgOK="onImgOK" widthPixels="1000"/>

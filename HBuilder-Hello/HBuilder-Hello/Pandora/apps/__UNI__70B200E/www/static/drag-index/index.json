@@ -1,0 +1,7 @@
+{
+    "backgroundTextStyle": "dark",
+    "usingComponents": {
+        "canvas-drag": "../canvas-drag/index"
+    },
+    "navigationStyle": "custom"
+}
